@@ -1,0 +1,353 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.min.js"></script>
+    <script src="https://unpkg.com/tippy.js@6/dist/tippy-bundle.umd.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+     integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        
+            
+        }
+        .wrap{
+            width: 100%;    
+            height: 100vh;
+            display: flex;
+            justify-content: center;   
+            align-items: center;
+
+        }
+        .bank{
+            width: 300px;
+            height: 500px;
+            background-color: red;
+            border-radius:  10px 10px 0 0;
+        }
+        .bank__top{
+            border: 10px solid blue;
+            width: 300px;
+            height: 250px;
+            background-color: lightgrey;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius:  10px 10px 0 0;
+        }
+    
+        .bank__screen{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 200px;
+            height: 150px;
+            background-color: black;
+            z-index: 2;
+            border-radius: 10px;
+        }
+        .bank__down{
+            border: 10px solid blue;
+            width: 300px;
+            height: 250px;
+            background-color: lightgrey;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .bank__from{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 150px;
+            height: 233px;
+            background-color: black;
+
+        }
+        .bank__from__odat{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            top: -15px;
+            width: 80px;
+            height: 50px;
+            background-color: lightgrey;
+
+        }
+        .bank__form__line{
+            position: relative;
+            top: 10px;
+            width: 50px;
+            height: 5px;
+            background-color: black;
+        }
+        .btn__screen{
+            width: 80px;
+            height: 50px;
+            background-color:  green;
+            color: white;
+            font-weight: 400;
+      
+            transition: top ease 0.5s;
+            animation: btn 2s infinite;
+            border-radius: 10px;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        @keyframes btn{
+            0%{
+            width: 80px;
+            height: 50px;
+
+    }
+            50%{
+        height: 60px;
+        width: 90px;
+      
+    }
+            100%{
+        height: 50px;
+        width: 80px;
+      
+    }
+}
+        .form{
+            position: relative;
+            left: 15px;
+        }
+        .inp{
+            border-radius: 10px;
+            height: 30px;
+
+
+        }
+        input::placeholder{
+            position: relative;
+            left: 5px;
+   
+        }
+        .next{
+            position: relative;
+            top: 7px;
+            left: 105px;
+            width: 50px;
+            height: 30px;
+            background-color: green;
+            border-radius: 10px;
+        }
+        .balance{
+         
+            width: 90px;
+            height: 30px;
+            border-radius: 10px ;
+            color: white;
+            background-color: green;
+            transition: top ease 0.5s;
+            animation: balance 2s infinite;
+
+        }
+        @keyframes balance{
+            0%{
+            width: 90px;
+            height: 30px;
+
+    }
+            50%{
+        height: 40px;
+        width: 100px;
+      
+    }
+            100%{
+                width: 90px;
+            height: 30px;
+    }
+}
+            p{
+                position: relative;
+                top: -30px;
+                color:  green;
+                text-align: center;
+                font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+                font-weight: 500;
+            }
+            .p{
+                position: relative;
+                top: -30px;
+                color:  green;
+                text-align: center;
+                font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+                font-weight: 500;
+            }
+            .but{
+                width: 80px;
+                height: 30px;
+                border-radius: 10px ;
+                color:  black;
+                background-color: green;
+                font-size: 20px;
+            }
+            .alert{
+                position: absolute;
+                top: 10px;
+                width: 300px;
+                height: 100px;
+                background-color: white;
+                box-shadow: 0 3px 5px #999;
+                border-radius: 10px;
+                border: 5px solid blue;
+                
+            }
+            .alerte{
+                position: absolute;
+                top: 10px;
+                width: 300px;
+                height: 100px;
+                background-color: white;
+                box-shadow: 0 3px 5px #999;
+                border-radius: 10px;
+                border: 5px solid blue;
+                
+            }
+            .alert__p{
+                
+                position: relative;
+                top: 10px;
+                left: -110px;
+                color:  green;
+                text-align: center;
+                font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+                font-weight: 500;
+            
+            }
+            .alert__pa{
+                
+                position: relative;
+                top: 20px;
+                left: -60px;
+                color:  green;
+                text-align: center;
+                font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+                font-weight: 500;
+            
+            }
+            #ok{
+                position: relative;
+                left: 190px;
+                width: 60px;
+                height: 40px;
+                background-color: green;
+                color: white;
+                font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+                font-weight: 400;
+                
+                border: none;
+                border-radius: 10px;
+            }
+            #oke{
+                position: relative;
+                left: 190px;
+                width: 60px;
+                height: 40px;
+                background-color: green;
+                color: white;
+                font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+                font-weight: 400;
+                
+                border: none;
+                border-radius: 10px;
+            }
+
+            
+            
+
+    
+
+        
+
+
+    
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="alert">
+            <p class="alert__p">Bank</p>
+            <p class="alert__pa">+50грн на рахунок</p>
+            <button id="ok">Ok</button>
+            
+
+        </div>
+        <div class="alerte">
+            <p class="alert__p">Bank</p>
+            <p class="alert__pa">-50грн з рахунок</p>
+            <button id="oke">Ok</button>
+            
+
+        </div>
+
+    <div class="bank">
+        <div class="bank__top">
+        <div class="bank__screen">
+            <button class="btn__screen">Log in</button>
+            <div class="form">
+                <input type="text" id="inp"   placeholder="Name"  class="inp are">
+                <input type="password" id="inp"  placeholder="Password"  class="inp ere">
+                <button class="next"  id="nextBtn">Next</button>
+            </div>
+
+            <div class="btns">
+                <p class="p">your account</p>
+                <button class="balance">Balance</button>
+            </div>
+            <div class="balance__block">
+                <p>Your balance:</p>
+                <p id="number">0 грн</p>
+
+                <button class="but add" id="add">+</button>
+                <button class="but minus" id="minus">-</button>
+            </div>
+            
+           
+
+        </div>
+       
+    </div>
+
+    <div class="bank__down"> 
+        <div class="bank__from">
+            <div class="bank__from__odat">
+                <div class="bank__form__line"></div>
+            
+            </div>
+        </div>
+
+    </div>
+
+    </div>
+</div>
+    
+
+
+
+
+
+
+
+    <script src="app.js"></script>
+
+
+
+
+
+
+    
+
+</body>
+</html>
